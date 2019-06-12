@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="url.endsWith('hub.pilgrim.me.uk') && !hidden"
-    class="col-12 col-md-6 service"
-  >
+  <div v-if="!hidden" class="col-12 col-md-6 service">
     <a
       :href="'https://' + url"
       class="card text-reset text-decoration-none"
@@ -66,9 +63,13 @@ export default {
       } else return this.labels.traefik
     },
     name: function() {
-      if (this.value.Names[0].includes('_'))
-        return upperFirst(this.value.Names[0].split('_')[1])
-      return upperFirst(this.value.Names[0].substring(1))
+      let name = this.value.Names[0]
+      if (name.includes('_')) name = name.split('_')[1]
+      if (name.startsWith('/')) name = name.substring(1)
+      name = upperFirst(name)
+      name = name.replace(/([A-Z])/g, ' $1').trim()
+
+      return name
     },
     rule: function() {
       if (this.segment === undefined) return

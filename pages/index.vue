@@ -58,7 +58,6 @@ export default {
       if (now.getHours() < 12) return 'Good Morning!'
       if (now.getHours() < 20) return 'Good Afternoon!'
       return 'Good Night!'
-
     }
   },
   async asyncData({ $axios }) {
