@@ -1,8 +1,8 @@
 # hub.pilgrim.me.uk
 
-> Docker Server Startpage for hub.pilgrim.me.uk
+> Server Startpage designed for hub.pilgrim.me.uk with automatic docker api based link generation
 
-## Build Setup
+## Development Setup
 
 ``` bash
 # install dependencies
@@ -18,5 +18,3 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
