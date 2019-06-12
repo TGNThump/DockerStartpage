@@ -15,8 +15,7 @@ EXPOSE 8080
 ENV HOST 0.0.0.0
 ENV PORT 8080
 
-HEALTHCHECK --interval=5m --timeout=3s \
-  CMD curl -f http://localhost:8080/ || exit 1
+HEALTHCHECK CMD curl -f http://localhost:8080/ || exit 1
 
 CMD npm start
 LABEL startpage.hidden=true
