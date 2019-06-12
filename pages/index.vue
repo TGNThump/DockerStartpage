@@ -56,10 +56,9 @@ export default {
 
       if (now.getHours() < 5) return 'Good Night!'
       if (now.getHours() < 12) return 'Good Morning!'
-      if (now.getHours() < 17) return 'Good Afternoon!'
-      if (now.getHours() < 23) return 'Good Night!'
+      if (now.getHours() < 20) return 'Good Afternoon!'
+      return 'Good Night!'
 
-      return now.getHours()
     }
   },
   async asyncData({ $axios }) {
