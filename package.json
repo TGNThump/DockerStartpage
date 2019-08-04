@@ -23,8 +23,6 @@
     "express": "^4.16.4",
     "flat": "^4.1.0",
     "lodash": "latest",
-    "lodash.camelcase": "^4.3.0",
-    "lodash.upperfirst": "^4.3.1",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

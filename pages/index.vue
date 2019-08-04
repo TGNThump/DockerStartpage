@@ -23,7 +23,16 @@ export default {
   },
   computed: {
     date: function() {
-      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+      const days = [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday'
+      ]
+
       const months = [
         'January',
         'February',
@@ -42,7 +51,7 @@ export default {
       const now = new Date()
 
       return (
-        days[now.getDay() - 1] +
+        days[(now.getDay() + 6) % 7] +
         ', ' +
         now.getDate() +
         ' ' +
