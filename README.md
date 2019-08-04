@@ -1,8 +1,17 @@
-# hub.pilgrim.me.uk
+# Docker Startpage
 
-> Docker Server Startpage for hub.pilgrim.me.uk
+> Server Startpage designed for hub.pilgrim.me.uk with automatic docker api based link generation
 
-## Build Setup
+## Docker Setup
+The image can be built with the command:
+```
+docker build git@github.com:TGNThump/DockerStartpage.git -t tgnthump/startpage
+```
+
+The environment variable `DOCKER_PATH` must be set to the location of the http docker api.
+Containers running will automatically get added to the listing provided they do not have the `startpage.hidden=true` label. Their urls will be set based upon the `traefik.frontend.rule` label, as configured with the Host paramater.
+
+## Development Setup
 
 ``` bash
 # install dependencies
@@ -18,5 +27,3 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
