@@ -72,6 +72,10 @@ export default {
       return name
     },
     rule: function() {
+      console.log(this.segment)
+      if (this.segment.frontend === undefined) return
+      console.log(this.segment.frontend.rule)
+
       if (this.segment === undefined) return
       const rules = this.segment.frontend.rule.split(';')
       const result = {}
