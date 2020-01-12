@@ -58,9 +58,7 @@ export default {
     },
     segment: function() {
       if (!('traefik' in this.labels)) return
-      if ('web' in this.labels.traefik) {
-        return this.labels.traefik.web
-      } else return this.labels.traefik
+      return this.labels.traefik
     },
     name: function() {
       let name = this.value.Names[0]
@@ -68,16 +66,21 @@ export default {
       if (name.startsWith('/')) name = name.substring(1)
       name = upperFirst(name)
       name = name.replace(/([A-Z])/g, ' $1').trim()
-
       return name
     },
     rule: function() {
-      console.log(this.segment)
-      if (this.segment.frontend === undefined) return
-      console.log(this.segment.frontend.rule)
 
-      if (this.segment === undefined) return
-      const rules = this.segment.frontend.rule.split(';')
+      if (this.segment == undefined) return
+
+      let segment = this.segment;
+      if (this.segment.frontend === undefined){
+        let keys = Object.keys(this.segment);
+        if (keys.length == 0) return;
+        segment = this.segment[keys[0]]
+      }
+
+      if (segment.frontend === undefined) return
+      const rules = segment.frontend.rule.split(';')
       const result = {}
 
       for (const i in rules) {
